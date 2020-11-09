@@ -120,6 +120,11 @@ func generatePassword(length int, reqNums int, reqSpecialChars int) (string, err
 		password[i], password[j] = password[j], password[i]
 	})
 
+	// if password has leading dash, replace with underscore (GH-15)
+	if password[0] == '-' {
+		password[0] = '_'
+	}
+
 	return string(password), nil
 
 }
