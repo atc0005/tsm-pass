@@ -5,55 +5,20 @@
 // Licensed under the MIT License. See LICENSE file in the project root for
 // full license information.
 
-// Purpose:
-//
-//   Generate Tivoli-compliant random passwords
-//
-// Password requirements:
-//
-// Tivoli passwords can be between 0 and 64 characters, but this is
-// controlled by the server administrator(s).
-// http://publib.boulder.ibm.com/infocenter/tivihelp/v1r1/topic/com.ibm.itsmcw.doc/anrwgd55429.htm#stmpwd
-//
-// Other sources say 63 characters, so it is probably better to use that as the
-// limit.
-// http://publib.boulder.ibm.com/infocenter/tsminfo/v6/topic/com.ibm.itsm.client.doc/r_cmd_setpassword.html
-//
-// Tivoli passwords are _not_ case-sensitive and can be be composed of these
-// valid characters:
-//
-// a-z     Any letter, a through z, upper or lower-case
-// 0-9     Any number, 0 through 9
-// +       Plus
-// .       Period
-// _       Underscore
-// -       Hyphen
-// &       Ampersand
-//
-// History:
-//
-// The original Python design was to use a 36 character UUID4 string and then
-// mix in 36 TSM-compliant special characters, using a 1:1 mix-in as the
-// script looped over the characters in the UUID string. After randomizing the
-// results, the first 63 characters were used for the final password.
-//
-// This implementation builds a map of all valid characters and then
-// randomizes which characters from that map will be used to generate the
-// final password string. This produces a string which differs significantly
-// from earlier output, but has a higher degree of randomness than before.
-
+// Generate Tivoli-compliant random passwords
 package main
 
 import (
 	"crypto/rand"
+	"errors"
+	"flag"
 	"fmt"
 	"math/big"
 	mrand "math/rand"
-)
+	"os"
 
-const defaultTSMPassMaxLength int = 63
-const requiredNumbers int = 10
-const requiredSpecialCharacters int = 25
+	"github.com/atc0005/tsm-pass/internal/config"
+)
 
 func generatePassword(length int, reqNums int, reqSpecialChars int) (string, error) {
 
@@ -130,15 +95,34 @@ func generatePassword(length int, reqNums int, reqSpecialChars int) (string, err
 }
 
 func main() {
+
+	cfg, err := config.New()
+	switch {
+	// TODO: How else to guard against nil cfg object?
+	case cfg != nil && cfg.ShowVersion():
+		fmt.Println(config.Version())
+		os.Exit(0)
+	case err == nil:
+		// do nothing for this one
+	case errors.Is(err, flag.ErrHelp):
+		// workaround until Go 1.15 is our baseline
+		os.Exit(0)
+	default:
+		fmt.Printf("\nfailed to initialize application: %s\n", err)
+		flag.Usage()
+		os.Exit(1)
+	}
+
 	passwd, err := generatePassword(
-		defaultTSMPassMaxLength,
-		requiredNumbers,
-		requiredSpecialCharacters,
+		cfg.PassTotalChars(),
+		cfg.PassMinDigits(),
+		cfg.PassMinSpecialChars(),
 	)
 
 	if err != nil {
 		panic(err)
 	}
 
+	// TODO: Should we emit a newline here?
 	fmt.Println(passwd)
 }
