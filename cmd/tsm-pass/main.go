@@ -49,10 +49,8 @@ import (
 	"fmt"
 	"math/big"
 	mrand "math/rand"
-	"strings"
 )
 
-// const tsmValidPassCharsRegex string = `a-zA-Z0-9+._-&`
 const defaultTSMPassMaxLength int = 63
 const requiredNumbers int = 10
 const requiredSpecialCharacters int = 25
@@ -73,7 +71,8 @@ func generatePassword(length int, reqNums int, reqSpecialChars int) (string, err
 	allValidChars := append(tsmSpecialChars, digits...)
 	allValidChars = append(allValidChars, letters...)
 
-	var passBuffer strings.Builder
+	password := make([]byte, length)
+	var passIdx int
 
 	getByte := func(b []byte) (byte, error) {
 		maxRandNum := big.NewInt(int64(len(b)))
@@ -82,6 +81,7 @@ func generatePassword(length int, reqNums int, reqSpecialChars int) (string, err
 		if rngErr != nil {
 			return 0, fmt.Errorf("unable to generate random number: %w", rngErr)
 		}
+
 		return b[nBig.Int64()], nil
 	}
 
@@ -91,7 +91,8 @@ func generatePassword(length int, reqNums int, reqSpecialChars int) (string, err
 		if err != nil {
 			return "", err
 		}
-		passBuffer.WriteByte(val)
+		password[passIdx] = val
+		passIdx++
 	}
 
 	for i := 0; i < reqSpecialChars; i++ {
@@ -100,7 +101,8 @@ func generatePassword(length int, reqNums int, reqSpecialChars int) (string, err
 		if err != nil {
 			return "", err
 		}
-		passBuffer.WriteByte(val)
+		password[passIdx] = val
+		passIdx++
 	}
 
 	remainingChars := length - reqNums - reqSpecialChars
@@ -110,10 +112,9 @@ func generatePassword(length int, reqNums int, reqSpecialChars int) (string, err
 		if err != nil {
 			return "", err
 		}
-		passBuffer.WriteByte(val)
+		password[passIdx] = val
+		passIdx++
 	}
-
-	password := []byte(passBuffer.String())
 
 	mrand.Shuffle(len(password), func(i int, j int) {
 		password[i], password[j] = password[j], password[i]
