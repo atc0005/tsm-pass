@@ -8,3 +8,5 @@
 module github.com/atc0005/tsm-pass
 
 go 1.14
+
+require github.com/google/uuid v1.1.2
