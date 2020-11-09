@@ -48,42 +48,91 @@ import (
 	"crypto/rand"
 	"fmt"
 	"math/big"
+	mrand "math/rand"
 	"strings"
 )
 
 // const tsmValidPassCharsRegex string = `a-zA-Z0-9+._-&`
 const defaultTSMPassMaxLength int = 63
+const requiredNumbers int = 10
+const requiredSpecialCharacters int = 25
 
-func generatePassword(length int) (string, error) {
+func generatePassword(length int, reqNums int, reqSpecialChars int) (string, error) {
 
 	// Based on https://yourbasic.org/golang/generate-random-string/
 
-	tsmSpecialChars := "&+-_."
-	digits := "0123456789"
-	letters := "abcdefghijklmnopqrstuvwxyz"
-	allValidChars := []rune(tsmSpecialChars + digits + letters)
-
-	var password strings.Builder
-
-	for i := 0; i <= length; i++ {
-		maxRandomNumber := big.NewInt(int64(len(allValidChars)))
-		nBig, rngErr := rand.Int(rand.Reader, maxRandomNumber)
-		if rngErr != nil {
-			return "", fmt.Errorf("unable to generate random number: %w", rngErr)
-		}
-		randomResultIdx := nBig.Int64()
-
-		password.WriteRune(allValidChars[randomResultIdx])
+	if reqNums+reqSpecialChars > length {
+		return "", fmt.Errorf(
+			"numbers + special characters greater than total password length",
+		)
 	}
 
-	return password.String(), nil
+	tsmSpecialChars := []byte("&+-_.")
+	digits := []byte("0123456789")
+	letters := []byte("abcdefghijklmnopqrstuvwxyz")
+	allValidChars := append(tsmSpecialChars, digits...)
+	allValidChars = append(allValidChars, letters...)
+
+	var passBuffer strings.Builder
+
+	getByte := func(b []byte) (byte, error) {
+		maxRandNum := big.NewInt(int64(len(b)))
+
+		nBig, rngErr := rand.Int(rand.Reader, maxRandNum)
+		if rngErr != nil {
+			return 0, fmt.Errorf("unable to generate random number: %w", rngErr)
+		}
+		return b[nBig.Int64()], nil
+	}
+
+	for i := 0; i < reqNums; i++ {
+		// fmt.Fprintln(os.Stderr, i)
+		val, err := getByte(digits)
+		if err != nil {
+			return "", err
+		}
+		passBuffer.WriteByte(val)
+	}
+
+	for i := 0; i < reqSpecialChars; i++ {
+		// fmt.Fprintln(os.Stderr, i)
+		val, err := getByte(tsmSpecialChars)
+		if err != nil {
+			return "", err
+		}
+		passBuffer.WriteByte(val)
+	}
+
+	remainingChars := length - reqNums - reqSpecialChars
+	for i := 0; i < remainingChars; i++ {
+		// fmt.Fprintln(os.Stderr, i)
+		val, err := getByte(allValidChars)
+		if err != nil {
+			return "", err
+		}
+		passBuffer.WriteByte(val)
+	}
+
+	password := []byte(passBuffer.String())
+
+	mrand.Shuffle(len(password), func(i int, j int) {
+		password[i], password[j] = password[j], password[i]
+	})
+
+	return string(password), nil
 
 }
 
 func main() {
-	passwd, err := generatePassword(defaultTSMPassMaxLength)
+	passwd, err := generatePassword(
+		defaultTSMPassMaxLength,
+		requiredNumbers,
+		requiredSpecialCharacters,
+	)
+
 	if err != nil {
 		panic(err)
 	}
+
 	fmt.Println(passwd)
 }
