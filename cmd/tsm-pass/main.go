@@ -48,68 +48,35 @@ import (
 	"crypto/rand"
 	"fmt"
 	"math/big"
+	"strings"
 )
 
 // const tsmValidPassCharsRegex string = `a-zA-Z0-9+._-&`
 const defaultTSMPassMaxLength int = 63
 
-// newTSMCharMap returns a map of int64 to TSM compliant password character.
-// This is intended to be used with rand.Int to produce random password
-// strings.
-func newTSMCharMap() map[int64]string {
-
-	// https://www.ascii-code.com/
-	tsmCharMap := make(map[int64]string)
-
-	// 5 special characters (literals)
-	tsmValidSpecialChars := []string{
-		"&", "+", "-", "_", ".",
-	}
-	for idx, c := range tsmValidSpecialChars {
-		tsmCharMap[int64(idx)] = c
-	}
-
-	// 10 numbers (ASCII 48-57)
-	extendCharMap(tsmCharMap, 48, 57)
-
-	// 26 case-insensitive, lowercase letters (97-122)
-	extendCharMap(tsmCharMap, 97, 122)
-
-	return tsmCharMap
-
-}
-
-// extendCharMap is a helper function to accept a map of int64 to string and
-// start/end decimal codes which represent a range of ASCII characters. The
-// map is populated with string values representing ASCII characters in that
-// range (e.g., 0-9 or a-z).
-func extendCharMap(cMap map[int64]string, start int, end int) {
-	mapIdx := int64(len(cMap))
-	for i := start; i <= end; i++ {
-		cMap[mapIdx] = string(i)
-		mapIdx++
-	}
-}
-
 func generatePassword(length int) (string, error) {
 
-	var password string
+	// Based on https://yourbasic.org/golang/generate-random-string/
 
-	tsmValidChars := newTSMCharMap()
+	tsmSpecialChars := "&+-_."
+	digits := "0123456789"
+	letters := "abcdefghijklmnopqrstuvwxyz"
+	allValidChars := []rune(tsmSpecialChars + digits + letters)
+
+	var password strings.Builder
 
 	for i := 0; i <= length; i++ {
-		// randomly return one of the TSM-compliant characters
-		maxRandomNumber := big.NewInt(int64(len(tsmValidChars)))
+		maxRandomNumber := big.NewInt(int64(len(allValidChars)))
 		nBig, rngErr := rand.Int(rand.Reader, maxRandomNumber)
 		if rngErr != nil {
 			return "", fmt.Errorf("unable to generate random number: %w", rngErr)
 		}
 		randomResultIdx := nBig.Int64()
 
-		password += tsmValidChars[randomResultIdx]
+		password.WriteRune(allValidChars[randomResultIdx])
 	}
 
-	return password, nil
+	return password.String(), nil
 
 }
 
