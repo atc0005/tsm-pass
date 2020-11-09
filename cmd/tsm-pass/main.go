@@ -29,6 +29,18 @@
 // _       Underscore
 // -       Hyphen
 // &       Ampersand
+//
+// History:
+//
+// The original Python design was to use a 36 character UUID4 string and then
+// mix in 36 TSM-compliant special characters, using a 1:1 mix-in as the
+// script looped over the characters in the UUID string. After randomizing the
+// results, the first 63 characters were used for the final password.
+//
+// This implementation builds a map of all valid characters and then
+// randomizes which characters from that map will be used to generate the
+// final password string. This produces a string which differs significantly
+// from earlier output, but has a higher degree of randomness than before.
 
 package main
 
@@ -36,51 +48,73 @@ import (
 	"crypto/rand"
 	"fmt"
 	"math/big"
-
-	"github.com/google/uuid"
 )
 
 // const tsmValidPassCharsRegex string = `a-zA-Z0-9+._-&`
 const defaultTSMPassMaxLength int = 63
 
-// the original Python design was to use a 36 character UUID4 string and then
-// mix in 36 TSM-compliant special characters, using a 1:1 mix-in as the
-// script looped over the characters in the UUID string. After randomizing the
-// results, the first 63 characters were used for the final password.
-func generatePassword() (string, error) {
+// newTSMCharMap returns a map of int64 to TSM compliant password character.
+// This is intended to be used with rand.Int to produce random password
+// strings.
+func newTSMCharMap() map[int64]string {
 
-	var finalPasswd string
+	// https://www.ascii-code.com/
+	tsmCharMap := make(map[int64]string)
 
-	tsmValidSpecialChars := map[int64]string{
-		0: "&",
-		1: "+",
-		2: "-",
-		3: "_",
-		4: ".",
+	// 5 special characters (literals)
+	tsmValidSpecialChars := []string{
+		"&", "+", "-", "_", ".",
+	}
+	for idx, c := range tsmValidSpecialChars {
+		tsmCharMap[int64(idx)] = c
 	}
 
-	passwdBase := uuid.New().String()
+	// 10 numbers (ASCII 48-57)
+	extendCharMap(tsmCharMap, 48, 57)
 
-	for _, c := range passwdBase {
-		finalPasswd += string(c)
+	// 26 case-insensitive, lowercase letters (97-122)
+	extendCharMap(tsmCharMap, 97, 122)
 
-		// randomly return one of the result codes from the list above
-		maxRandomNumber := big.NewInt(int64(len(tsmValidSpecialChars)))
+	return tsmCharMap
+
+}
+
+// extendCharMap is a helper function to accept a map of int64 to string and
+// start/end decimal codes which represent a range of ASCII characters. The
+// map is populated with string values representing ASCII characters in that
+// range (e.g., 0-9 or a-z).
+func extendCharMap(cMap map[int64]string, start int, end int) {
+	mapIdx := int64(len(cMap))
+	for i := start; i <= end; i++ {
+		cMap[mapIdx] = string(i)
+		mapIdx++
+	}
+}
+
+func generatePassword(length int) (string, error) {
+
+	var password string
+
+	tsmValidChars := newTSMCharMap()
+
+	for i := 0; i <= length; i++ {
+		// randomly return one of the TSM-compliant characters
+		maxRandomNumber := big.NewInt(int64(len(tsmValidChars)))
 		nBig, rngErr := rand.Int(rand.Reader, maxRandomNumber)
 		if rngErr != nil {
 			return "", fmt.Errorf("unable to generate random number: %w", rngErr)
 		}
 		randomResultIdx := nBig.Int64()
 
-		finalPasswd += tsmValidSpecialChars[randomResultIdx]
+		password += tsmValidChars[randomResultIdx]
 	}
 
-	return finalPasswd[0 : defaultTSMPassMaxLength-1], nil
+	return password, nil
 
 }
 
 func main() {
-	passwd, err := generatePassword()
+	passwd, err := generatePassword(defaultTSMPassMaxLength)
 	if err != nil {
 		panic(err)
 	}
