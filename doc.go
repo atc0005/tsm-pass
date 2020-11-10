@@ -25,7 +25,9 @@ alternative use.
 FEATURES
 
 • Optional number of required total characters
+
 • Optional number of required special characters
+
 • Optional number of required digits
 
 USAGE
