@@ -98,33 +98,28 @@ func generatePassword(length int, reqNums int, reqSpecialChars int) (string, err
 
 func main() {
 
-	cfg, err := config.New()
+	cfg, cfgErr := config.New()
 	switch {
-	// TODO: How else to guard against nil cfg object?
-	case cfg != nil && cfg.ShowVersion():
+	case errors.Is(cfgErr, config.ErrVersionRequested):
 		fmt.Println(config.Version())
 		os.Exit(0)
-	case err == nil:
+	case cfgErr == nil:
 		// do nothing for this one
-	case errors.Is(err, flag.ErrHelp):
-		// workaround until Go 1.15 is our baseline
-		os.Exit(0)
 	default:
-		fmt.Printf("\nfailed to initialize application: %s\n", err)
+		fmt.Printf("\nfailed to initialize application: %s\n", cfgErr)
 		flag.Usage()
 		os.Exit(1)
 	}
 
-	passwd, err := generatePassword(
+	passwd, passwdErr := generatePassword(
 		cfg.PassTotalChars(),
 		cfg.PassMinDigits(),
 		cfg.PassMinSpecialChars(),
 	)
 
-	if err != nil {
-		panic(err)
+	if passwdErr != nil {
+		panic(passwdErr)
 	}
 
-	// TODO: Should we emit a newline here?
 	fmt.Println(passwd)
 }
