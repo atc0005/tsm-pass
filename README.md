@@ -16,6 +16,9 @@ Generate passwords compatible with Tivoli/TSM/Spectrum Protect
 - [Project home](#project-home)
 - [Overview](#overview)
 - [Password requirements](#password-requirements)
+  - [Length](#length)
+  - [case-sensitive (or not)](#case-sensitive-or-not)
+  - [Valid characters](#valid-characters)
 - [Features](#features)
 - [Changelog](#changelog)
 - [Requirements](#requirements)
@@ -40,30 +43,78 @@ submit improvements for review and potential inclusion into the project.
 ## Overview
 
 This repo provides a Go CLI application that can be used to generate a
-password string compatible with Tivoli/TSM/Spectrum Protect. An older Python
+password string compatible with IBM Spectrum Protect. An older Python
 script previously used for this purpose is included for reference or
 alternative use.
 
+Historically, IBM Spectrum Protect was known as `Tivoli` or `TSM`. Because the
+current maintainer has used the product for years by either of `Tivoli` or
+`TSM`, those names are still heavily referenced both here and in internal
+documentation.
+
 ## Password requirements
 
-Depending on the documentation source, Tivoli passwords can be between 0 and
-64 characters. Some sources say 63 characters.
+The following requirements apply to IBM Spectrum Protect server versions
+between 6.3.3 and 8.1.10 (latest version at the time of this writing).
 
-Tivoli passwords are *not* case-sensitive and can be be composed of these
-valid characters:
+### Length
 
-| Characters | Explanation                                  |
-| ---------- | -------------------------------------------- |
-| `a-z`      | Any letter, a through z, upper or lower-case |
-| `0-9`      | Any number, 0 through 9                      |
-| `+`        | Plus                                         |
-| `.`        | Period                                       |
-| `_`        | Underscore                                   |
-| `-`        | Hyphen                                       |
-| `&`        | Ampersand                                    |
+Tivoli passwords can be up to 63 characters in length.
+
+### case-sensitive (or not)
+
+- if *not* using a LDAP directory server
+  - passwords are stored in the IBM Spectrum Protect server database
+  - passwords are *not* case-sensitive
+- if using a LDAP directory server
+  - passwords are stored in the LDAP directory server
+    - or whatever underlying system that the LDAP directory server uses
+  - passwords are case-sensitive
+  - passwords are subject to more restrictions that can be imposed by LDAP
+    policies
+
+### Valid characters
+
+Passwords can be be composed of these valid characters:
+
+| Characters | Explanation                                            |
+| ---------- | ------------------------------------------------------ |
+| `a-z`      | Any letter, a through z, lower-case                    |
+| `A-Z`      | Any letter, a through z, upper-case (*see LDAP notes*) |
+| `0-9`      | Any number, 0 through 9                                |
+| `+`        | Plus                                                   |
+| `.`        | Period                                                 |
+| `_`        | Underscore                                             |
+| `-`        | Hyphen                                                 |
+| `&`        | Ampersand                                              |
+| `*`        | Asterisk                                               |
+| `^`        | Caret - circumflex                                     |
+| &#96;      | Grace accent                                           |
+| `!`        | Exclamation mark                                       |
+| `@`        | At symbol                                              |
+| `#`        | Number ("pound")                                       |
+| `$`        | Dollar                                                 |
+| `%`        | Percent (per cent) sign                                |
+| `=`        | Equals                                                 |
+| `(`        | Open parenthesis (or open bracket)                     |
+| `)`        | Close parenthesis (or close bracket)                   |
+| `|`        | Vertical bar                                           |
+| `{`        | Opening brace                                          |
+| `}`        | Closing brace                                          |
+| `[`        | Opening bracket                                        |
+| `]`        | Closing bracket                                        |
+| `:`        | Colon                                                  |
+| `;`        | Semicolon                                              |
+| `<`        | Less than (or open angled bracket)                     |
+| `>`        | Greater than (or close angled bracket)                 |
+| `,`        | Comma                                                  |
+| `?`        | Question mark                                          |
+| `/`        | Slash                                                  |
+| `~`        | Equivalency sign - tilde                               |
 
 Server administrators set final password policy (e.g., required password
-length). Reach out to your IT support team to learn what specific
+length). As previously noted, these requirements change if using a LDAP
+directory server. Reach out to your IT support team to learn what specific
 requirements have been configured for your site.
 
 ## Features
@@ -156,13 +207,13 @@ been tested.
   variable.
 - Flags *not* marked as required are for settings where a useful default is
 
-| Option               | Required | Default | Repeat | Possible       | Description                                                                                                            |
-| -------------------- | -------- | ------- | ------ | -------------- | ---------------------------------------------------------------------------------------------------------------------- |
-| `h`, `help`          | No       | `false` | No     | `h`, `help`    | Show Help text along with the list of supported flags.                                                                 |
-| `v`, `version`       | No       | `false` | No     | `v`, `version` | Toggles emission of branding details with plugin status details. This output is disabled by default.                   |
-| `md`, `min-digits`   | No       | `10`    | No     | `1+`           | The minimum number of digits that will be used when generating a new TSM-compatible password.                          |
-| `ms`, `min-specials` | No       | `25`    | No     | `1+`           | The minimum number of (compatible) special characters that will be used when generating a new TSM-compatible password. |
-| `l`, `length`        | No       | `25`    | No     | `3+`           | The total number of characters to use when generating a new TSM-compatible password.                                   |
+| Option               | Required | Default | Repeat | Possible       | Description                                                                                                                                        |
+| -------------------- | -------- | ------- | ------ | -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `h`, `help`          | No       | `false` | No     | `h`, `help`    | Show Help text along with the list of supported flags.                                                                                             |
+| `v`, `version`       | No       | `false` | No     | `v`, `version` | Toggles emission of branding details with plugin status details. This output is disabled by default.                                               |
+| `md`, `min-digits`   | No       | `10`    | No     | `1+`           | The minimum number of digits that will be used when generating a new TSM-compatible password.                                                      |
+| `ms`, `min-specials` | No       | `25`    | No     | `1+`           | The minimum number of (compatible) special characters that will be used when generating a new TSM-compatible password.                             |
+| `l`, `length`        | No       | `25`    | No     | `3+`           | The total number of characters to use when generating a new TSM-compatible password. See Password Requirements in the README for more information. |
 
 ## Examples
 
@@ -256,8 +307,13 @@ SOFTWARE.
 
 - TSM/Tivoli/Spectrum Protect
   - Password requirements
-    - <http://publib.boulder.ibm.com/infocenter/tivihelp/v1r1/topic/com.ibm.itsmcw.doc/anrwgd55429.htm#stmpwd>
-    - <http://publib.boulder.ibm.com/infocenter/tsminfo/v6/topic/com.ibm.itsm.client.doc/r_cmd_setpassword.html>
+    - recent
+      - <https://www.ibm.com/support/knowledgecenter/SSEQVQ_8.1.10/client/r_cmd_setpassword.html>
+    - historical
+      - <http://publib.boulder.ibm.com/infocenter/tivihelp/v1r1/topic/com.ibm.itsmcw.doc/anrwgd55429.htm#stmpwd>
+      - <http://publib.boulder.ibm.com/infocenter/tsminfo/v6/topic/com.ibm.itsm.client.doc/r_cmd_setpassword.html>
+
+- <https://www.ascii-code.com/>
 
 <!-- Footnotes here  -->
 

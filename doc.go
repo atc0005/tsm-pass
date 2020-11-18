@@ -18,8 +18,8 @@ inclusion into the project.
 PURPOSE
 
 This repo provides a Go CLI application that can be used to generate a
-password string compatible with Tivoli/TSM/Spectrum Protect. An older Python
-script previously used for this purpose is included for reference or
+password string compatible with IBM Spectrum Protect 6.3.3 or later. An older
+Python script previously used for this purpose is included for reference or
 alternative use.
 
 FEATURES
