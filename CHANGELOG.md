@@ -26,6 +26,27 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.1.1] - 2020-11-18
+
+### Overview
+
+- Built using Go 1.15.5
+  - Statically linked
+  - Windows (x86, x64)
+  - Linux (x86, x64)
+
+- Update password restrictions, minor cleanup.
+
+### Changed
+
+- Extend list of supported characters to reflect IBM Spectrum Protect v6.3.3+
+- Update config initialization
+- Minor code cleanup
+
+### Fixed
+
+- GoDoc: Missing line breaks between features list entries
+
 ## [v0.1.0] - 2020-11-10
 
 ### Added
@@ -46,5 +67,6 @@ for reference or alternative use.
     - x86
     - x64
 
-[Unreleased]: https://github.com/atc0005/tsm-pass/compare/v0.1.0...HEAD
+[Unreleased]: https://github.com/atc0005/tsm-pass/compare/v0.1.1...HEAD
+[v0.1.1]: https://github.com/atc0005/tsm-pass/releases/tag/v0.1.1
 [v0.1.0]: https://github.com/atc0005/tsm-pass/releases/tag/v0.1.0
