@@ -8,6 +8,7 @@
 package config
 
 import (
+	"errors"
 	"flag"
 	"fmt"
 	"os"
@@ -18,23 +19,9 @@ import (
 // builds.
 var version string = "x.y.z"
 
-const myAppName string = "tsm-pass"
-const myAppURL string = "https://github.com/atc0005/tsm-pass"
-
-const (
-	versionFlagHelp         string = "Whether to display application version and then immediately exit application."
-	minDigitsFlagHelp       string = "The minimum number of digits that will be used when generating a new TSM-compatible password."
-	minSpecialCharsFlagHelp string = "The minimum number of (compatible) special characters that will be used when generating a new TSM-compatible password."
-	totalCharsFlagHelp      string = "The total number of characters to use when generating a new TSM-compatible password. See Password Requirements in the README for more information."
-)
-
-// Default flag settings if not overridden by user input
-const (
-	defaultMinDigits             int  = 10
-	defaultMinSpecialChars       int  = 25
-	defaultTotalChars            int  = 63
-	defaultDisplayVersionAndExit bool = false
-)
+// ErrVersionRequested indicates that the user requested application version
+// information
+var ErrVersionRequested = errors.New("version information requested")
 
 // Config represents the application configuration as specified via
 // command-line flags.
@@ -81,7 +68,7 @@ func New() (*Config, error) {
 
 	// Return immediately if user just wants version details
 	if config.ShowVersion() {
-		return &config, nil
+		return nil, ErrVersionRequested
 	}
 
 	if err := config.validate(); err != nil {
