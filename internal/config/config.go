@@ -25,7 +25,7 @@ const (
 	versionFlagHelp         string = "Whether to display application version and then immediately exit application."
 	minDigitsFlagHelp       string = "The minimum number of digits that will be used when generating a new TSM-compatible password."
 	minSpecialCharsFlagHelp string = "The minimum number of (compatible) special characters that will be used when generating a new TSM-compatible password."
-	totalCharsFlagHelp      string = "The total number of characters to use when generating a new TSM-compatible password."
+	totalCharsFlagHelp      string = "The total number of characters to use when generating a new TSM-compatible password. See Password Requirements in the README for more information."
 )
 
 // Default flag settings if not overridden by user input

@@ -1,5 +1,12 @@
 #!/usr/bin/env python
 
+# Copyright 2020 Adam Chalkley
+#
+# https://github.com/atc0005/tsm-pass
+#
+# Licensed under the MIT License. See LICENSE file in the project root for
+# full license information.
+
 # Purpose:
 #
 #   Generates random passwords by generating UUID and inserting random
@@ -7,24 +14,7 @@
 #
 # Password requirements:
 #
-# Tivoli passwords can be between 0 and 64 characters, but this is
-# controlled by the server administrator(s).
-# http://publib.boulder.ibm.com/infocenter/tivihelp/v1r1/topic/com.ibm.itsmcw.doc/anrwgd55429.htm#stmpwd
-#
-# Other sources say 63 characters, so it is probably better to use that as the
-# limit.
-# http://publib.boulder.ibm.com/infocenter/tsminfo/v6/topic/com.ibm.itsm.client.doc/r_cmd_setpassword.html
-#
-# Tivoli passwords are _not_ case-sensitive and can be be composed of these
-# valid characters:
-#
-# a-z     Any letter, a through z, upper or lower-case
-# 0-9     Any number, 0 through 9
-# +       Plus
-# .       Period
-# _       Underscore
-# -       Hyphen
-# &       Ampersand
+# * See project README
 
 from __future__ import print_function
 
@@ -38,6 +28,11 @@ new_password_base = str(uuid.uuid4())
 # These are the only special characters allowed by Tivoli
 special_characters = [
     '&', '+', '-', '_', '.',
+    '!', '@', '#', '$', '%',
+    '^','*', '=', '`', '(',
+    ')', '|', '{', '}', '[',
+    ']', ':', ';', '<', '>',
+    ',', '?', '/', '~',
 ]
 
 # Going to dynamically build this
