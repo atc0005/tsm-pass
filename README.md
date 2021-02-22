@@ -4,7 +4,7 @@
 Generate passwords compatible with Tivoli/TSM/Spectrum Protect
 
 [![Latest Release](https://img.shields.io/github/release/atc0005/tsm-pass.svg?style=flat-square)](https://github.com/atc0005/tsm-pass/releases/latest)
-[![GoDoc](https://godoc.org/github.com/atc0005/tsm-pass?status.svg)](https://godoc.org/github.com/atc0005/tsm-pass)
+[![Go Reference](https://pkg.go.dev/badge/github.com/atc0005/tsm-pass.svg)](https://pkg.go.dev/github.com/atc0005/tsm-pass)
 [![Validate Codebase](https://github.com/atc0005/tsm-pass/workflows/Validate%20Codebase/badge.svg)](https://github.com/atc0005/tsm-pass/actions?query=workflow%3A%22Validate+Codebase%22)
 [![Validate Docs](https://github.com/atc0005/tsm-pass/workflows/Validate%20Docs/badge.svg)](https://github.com/atc0005/tsm-pass/actions?query=workflow%3A%22Validate+Docs%22)
 [![Lint and Build using Makefile](https://github.com/atc0005/tsm-pass/workflows/Lint%20and%20Build%20using%20Makefile/badge.svg)](https://github.com/atc0005/tsm-pass/actions?query=workflow%3A%22Lint+and+Build+using+Makefile%22)
