@@ -34,7 +34,10 @@ func generatePassword(length int, reqNums int, reqSpecialChars int) (string, err
 	digits := []byte(config.PasswordDigits)
 	lowerLetters := []byte(config.PasswordLowerLetters)
 	upperLetters := []byte(config.PasswordUpperLetters)
-	allValidChars := append(tsmSpecialChars, digits...)
+
+	allValidChars := make([]byte, 0, len(tsmSpecialChars)+len(digits)+len(lowerLetters)+len(upperLetters))
+	allValidChars = append(allValidChars, digits...)
+	allValidChars = append(allValidChars, tsmSpecialChars...)
 	allValidChars = append(allValidChars, lowerLetters...)
 	allValidChars = append(allValidChars, upperLetters...)
 
