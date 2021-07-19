@@ -26,6 +26,37 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.1.2] - 2021-07-19
+
+### Overview
+
+- Built using Go 1.16.6
+  - Statically linked
+  - Windows (x86, x64)
+  - Linux (x86, x64)
+
+### Added
+
+- Add "canary" Dockerfile to track stable Go releases, serve as a reminder to
+  generate fresh binaries
+
+### Changed
+
+- Swap out GoDoc badge for pkg.go.dev badge
+
+- Dependencies
+  - `Go`
+    - `1.15.5` to `1.16.6`
+  - `actions/setup-node`
+    - `v2.1.2` to `v2.2.0`
+    - update `node-version` value to always use latest LTS version instead of
+      hard-coded version
+
+### Fixed
+
+- cmd/tsm-pass/main.go:37:19: appendAssign: append result not assigned to the
+  same slice (gocritic)
+
 ## [v0.1.1] - 2020-11-18
 
 ### Overview
@@ -67,6 +98,7 @@ for reference or alternative use.
     - x86
     - x64
 
-[Unreleased]: https://github.com/atc0005/tsm-pass/compare/v0.1.1...HEAD
+[Unreleased]: https://github.com/atc0005/tsm-pass/compare/v0.1.2...HEAD
+[v0.1.2]: https://github.com/atc0005/tsm-pass/releases/tag/v0.1.2
 [v0.1.1]: https://github.com/atc0005/tsm-pass/releases/tag/v0.1.1
 [v0.1.0]: https://github.com/atc0005/tsm-pass/releases/tag/v0.1.0
