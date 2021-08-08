@@ -26,6 +26,24 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.1.3] - 2021-08-08
+
+### Overview
+
+- Dependency updates
+- built using Go 1.16.7
+  - Statically linked
+  - Windows (x86, x64)
+  - Linux (x86, x64)
+
+### Changed
+
+- Dependencies
+  - `Go`
+    - `1.16.6` to `1.16.7`
+  - `actions/setup-node`
+    - updated from `v2.2.0` to `v2.4.0`
+
 ## [v0.1.2] - 2021-07-19
 
 ### Overview
@@ -98,7 +116,8 @@ for reference or alternative use.
     - x86
     - x64
 
-[Unreleased]: https://github.com/atc0005/tsm-pass/compare/v0.1.2...HEAD
+[Unreleased]: https://github.com/atc0005/tsm-pass/compare/v0.1.3...HEAD
+[v0.1.3]: https://github.com/atc0005/tsm-pass/releases/tag/v0.1.3
 [v0.1.2]: https://github.com/atc0005/tsm-pass/releases/tag/v0.1.2
 [v0.1.1]: https://github.com/atc0005/tsm-pass/releases/tag/v0.1.1
 [v0.1.0]: https://github.com/atc0005/tsm-pass/releases/tag/v0.1.0
