@@ -25,6 +25,8 @@ Generate passwords compatible with Tivoli/TSM/Spectrum Protect
   - [Building source code](#building-source-code)
   - [Running](#running)
 - [Installation](#installation)
+  - [From source](#from-source)
+  - [Using release binaries](#using-release-binaries)
 - [Configuration](#configuration)
   - [Command-line Arguments](#command-line-arguments)
 - [Examples](#examples)
@@ -152,6 +154,8 @@ been tested.
 
 ## Installation
 
+### From source
+
 1. [Download][go-docs-download] Go
 1. [Install][go-docs-install] Go
    - NOTE: Pay special attention to the remarks about `$HOME/.profile`
@@ -198,6 +202,13 @@ been tested.
      - look in `/tmp/tsm-pass/release_assets/tsm-pass/`
    - if using `go build`
      - look in `/tmp/tsm-pass/`
+
+### Using release binaries
+
+1. Download the [latest release][repo-url] binaries
+1. Deploy
+   - Place `tsm-pass` in a location of your choice
+     - e.g., `/usr/local/bin/tsm-pass`
 
 ## Configuration
 
