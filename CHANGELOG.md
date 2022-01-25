@@ -26,6 +26,24 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.1.7] - 2022-01-25
+
+### Overview
+
+- Dependency updates
+- built using Go 1.17.6
+  - Statically linked
+  - Windows (x86, x64)
+  - Linux (x86, x64)
+
+### Changed
+
+- Dependencies
+  - `Go`
+    - `1.16.12` to `1.17.6`
+    - (GH-70) Update go.mod file, canary Dockerfile to reflect current
+      dependencies
+
 ## [v0.1.6] - 2021-12-29
 
 ### Overview
@@ -170,7 +188,8 @@ for reference or alternative use.
     - x86
     - x64
 
-[Unreleased]: https://github.com/atc0005/tsm-pass/compare/v0.1.6...HEAD
+[Unreleased]: https://github.com/atc0005/tsm-pass/compare/v0.1.7...HEAD
+[v0.1.7]: https://github.com/atc0005/tsm-pass/releases/tag/v0.1.7
 [v0.1.6]: https://github.com/atc0005/tsm-pass/releases/tag/v0.1.6
 [v0.1.5]: https://github.com/atc0005/tsm-pass/releases/tag/v0.1.5
 [v0.1.4]: https://github.com/atc0005/tsm-pass/releases/tag/v0.1.4
