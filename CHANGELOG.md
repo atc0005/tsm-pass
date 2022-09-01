@@ -26,6 +26,28 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.1.10] - 2022-09-01
+
+### Overview
+
+- Bug fixes
+- Dependency updates
+- built using Go 1.17.13
+  - Statically linked
+  - Windows (x86, x64)
+  - Linux (x86, x64)
+
+### Changed
+
+- Dependencies
+  - `Go`
+    - `1.17.9` to `1.17.13`
+
+### Fixed
+
+- (GH-90) Update lintinstall Makefile recipe
+- (GH-93) Fix/workaround linting errors
+
 ## [v0.1.9] - 2022-05-06
 
 ### Overview
@@ -235,7 +257,8 @@ for reference or alternative use.
     - x86
     - x64
 
-[Unreleased]: https://github.com/atc0005/tsm-pass/compare/v0.1.9...HEAD
+[Unreleased]: https://github.com/atc0005/tsm-pass/compare/v0.1.10...HEAD
+[v0.1.10]: https://github.com/atc0005/tsm-pass/releases/tag/v0.1.10
 [v0.1.9]: https://github.com/atc0005/tsm-pass/releases/tag/v0.1.9
 [v0.1.8]: https://github.com/atc0005/tsm-pass/releases/tag/v0.1.8
 [v0.1.7]: https://github.com/atc0005/tsm-pass/releases/tag/v0.1.7
