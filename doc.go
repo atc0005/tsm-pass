@@ -6,33 +6,29 @@
 // full license information.
 
 /*
-
 Generate passwords compatible with Tivoli/TSM/Spectrum Protect.
 
-PROJECT HOME
+# PROJECT HOME
 
 See our GitHub repo (https://github.com/atc0005/tsm-pass) for the latest
 code, to file an issue or submit improvements for review and potential
 inclusion into the project.
 
-PURPOSE
+# PURPOSE
 
 This repo provides a Go CLI application that can be used to generate a
 password string compatible with IBM Spectrum Protect 6.3.3 or later. An older
 Python script previously used for this purpose is included for reference or
 alternative use.
 
-FEATURES
+# FEATURES
 
-• Optional number of required total characters
+  - Optional number of required total characters
+  - Optional number of required special characters
+  - Optional number of required digits
 
-• Optional number of required special characters
-
-• Optional number of required digits
-
-USAGE
+# USAGE
 
 See our main README for supported settings and examples.
-
 */
 package main

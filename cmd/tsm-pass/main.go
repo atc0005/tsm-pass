@@ -9,7 +9,7 @@
 package main
 
 import (
-	"crypto/rand"
+	crand "crypto/rand"
 	"errors"
 	"flag"
 	"fmt"
@@ -47,7 +47,7 @@ func generatePassword(length int, reqNums int, reqSpecialChars int) (string, err
 	getByte := func(b []byte) (byte, error) {
 		maxRandNum := big.NewInt(int64(len(b)))
 
-		nBig, rngErr := rand.Int(rand.Reader, maxRandNum)
+		nBig, rngErr := crand.Int(crand.Reader, maxRandNum)
 		if rngErr != nil {
 			return 0, fmt.Errorf("unable to generate random number: %w", rngErr)
 		}
