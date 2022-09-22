@@ -26,6 +26,28 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.1.11] - 2022-09-22
+
+### Overview
+
+- Dependency updates
+- GitHub Actions Workflows updates
+- built using Go 1.19.1
+  - Statically linked
+  - Windows (x86, x64)
+  - Linux (x86, x64)
+
+### Changed
+
+- Dependencies
+  - `Go`
+    - `1.17.13` to `1.19.1`
+  - `github/codeql-action`
+    - `v2.1.22` to `v2.1.24`
+- (GH-94) Update project to Go 1.19
+- (GH-95) Update Makefile and GitHub Actions Workflows
+- (GH-96) Add CodeQL GitHub Actions Workflow
+
 ## [v0.1.10] - 2022-09-01
 
 ### Overview
@@ -257,7 +279,8 @@ for reference or alternative use.
     - x86
     - x64
 
-[Unreleased]: https://github.com/atc0005/tsm-pass/compare/v0.1.10...HEAD
+[Unreleased]: https://github.com/atc0005/tsm-pass/compare/v0.1.11...HEAD
+[v0.1.11]: https://github.com/atc0005/tsm-pass/releases/tag/v0.1.11
 [v0.1.10]: https://github.com/atc0005/tsm-pass/releases/tag/v0.1.10
 [v0.1.9]: https://github.com/atc0005/tsm-pass/releases/tag/v0.1.9
 [v0.1.8]: https://github.com/atc0005/tsm-pass/releases/tag/v0.1.8
