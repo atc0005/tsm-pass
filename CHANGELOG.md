@@ -26,6 +26,29 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.1.12] - 2022-12-12
+
+### Overview
+
+- Bug fixes
+- Dependency updates
+- GitHub Actions Workflows updates
+- built using Go 1.19.4
+  - Statically linked
+  - Windows (x86, x64)
+  - Linux (x86, x64)
+
+### Changed
+
+- Dependencies
+  - `Go`
+    - `1.19.1` to `1.19.4`
+- (GH-103) Refactor GitHub Actions workflows to import logic
+
+### Fixed
+
+- (GH-106) Fix Makefile Go module base path detection
+
 ## [v0.1.11] - 2022-09-22
 
 ### Overview
@@ -279,7 +302,8 @@ for reference or alternative use.
     - x86
     - x64
 
-[Unreleased]: https://github.com/atc0005/tsm-pass/compare/v0.1.11...HEAD
+[Unreleased]: https://github.com/atc0005/tsm-pass/compare/v0.1.12...HEAD
+[v0.1.12]: https://github.com/atc0005/tsm-pass/releases/tag/v0.1.12
 [v0.1.11]: https://github.com/atc0005/tsm-pass/releases/tag/v0.1.11
 [v0.1.10]: https://github.com/atc0005/tsm-pass/releases/tag/v0.1.10
 [v0.1.9]: https://github.com/atc0005/tsm-pass/releases/tag/v0.1.9
