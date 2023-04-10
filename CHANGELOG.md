@@ -26,6 +26,35 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.2.0] - 2023-04-10
+
+### Overview
+
+- Add support for generating DEB, RPM packages
+- Build improvements
+- Generated binary changes
+  - filename patterns
+  - compression (~ 66% smaller)
+  - executable metadata
+- built using Go 1.19.8
+  - Statically linked
+  - Windows (x86, x64)
+  - Linux (x86, x64)
+
+### Added
+
+- (GH-118) Generate RPM/DEB packages using nFPM
+- (GH-119) Add version details to Windows executables
+
+### Changed
+
+- (GH-117) Switch to semantic versioning (semver) compatible versioning
+  pattern
+- (GH-120) Makefile: Compress binaries & use fixed filenames
+- (GH-121) Makefile: Refresh recipes to add "standard" set, new
+  package-related options
+- (GH-122) Build dev/stable releases using go-ci Docker image
+
 ## [v0.1.13] - 2023-04-10
 
 ### Overview
@@ -331,7 +360,8 @@ for reference or alternative use.
     - x86
     - x64
 
-[Unreleased]: https://github.com/atc0005/tsm-pass/compare/v0.1.13...HEAD
+[Unreleased]: https://github.com/atc0005/tsm-pass/compare/v0.2.0...HEAD
+[v0.2.0]: https://github.com/atc0005/tsm-pass/releases/tag/v0.2.0
 [v0.1.13]: https://github.com/atc0005/tsm-pass/releases/tag/v0.1.13
 [v0.1.12]: https://github.com/atc0005/tsm-pass/releases/tag/v0.1.12
 [v0.1.11]: https://github.com/atc0005/tsm-pass/releases/tag/v0.1.11
