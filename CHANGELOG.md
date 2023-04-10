@@ -26,6 +26,35 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.1.13] - 2023-04-10
+
+### Overview
+
+- Bug fixes
+- Dependency updates
+- GitHub Actions workflow updates
+- built using Go 1.19.8
+  - Statically linked
+  - Windows (x86, x64)
+  - Linux (x86, x64)
+
+### Added
+
+- (GH-111) Add Go Module Validation, Dependency Updates jobs
+
+### Changed
+
+- Dependencies
+  - `Go`
+    - `1.19.4` to `1.19.8`
+- (GH-113) Drop `Push Validation` workflow
+- (GH-114) Rework workflow scheduling
+- (GH-116) Remove `Push Validation` workflow status badge
+
+### Fixed
+
+- (GH-124) Update vuln analysis GHAW to use on.push hook
+
 ## [v0.1.12] - 2022-12-12
 
 ### Overview
@@ -302,7 +331,8 @@ for reference or alternative use.
     - x86
     - x64
 
-[Unreleased]: https://github.com/atc0005/tsm-pass/compare/v0.1.12...HEAD
+[Unreleased]: https://github.com/atc0005/tsm-pass/compare/v0.1.13...HEAD
+[v0.1.13]: https://github.com/atc0005/tsm-pass/releases/tag/v0.1.13
 [v0.1.12]: https://github.com/atc0005/tsm-pass/releases/tag/v0.1.12
 [v0.1.11]: https://github.com/atc0005/tsm-pass/releases/tag/v0.1.11
 [v0.1.10]: https://github.com/atc0005/tsm-pass/releases/tag/v0.1.10
