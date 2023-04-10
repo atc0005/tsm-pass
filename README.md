@@ -99,7 +99,7 @@ Passwords can be be composed of these valid characters:
 | `=`        | Equals                                                 |
 | `(`        | Open parenthesis (or open bracket)                     |
 | `)`        | Close parenthesis (or close bracket)                   |
-| `          | `                                                      | Vertical bar |
+| `|`        | Vertical bar                                           |
 | `{`        | Opening brace                                          |
 | `}`        | Closing brace                                          |
 | `[`        | Opening bracket                                        |
@@ -205,12 +205,23 @@ been tested.
    - if using `go build`
      - look in `/tmp/tsm-pass/`
 
+**NOTE**: Depending on which `Makefile` recipe you use the generated binary
+may be compressed and have an `xz` extension. If so, you should decompress the
+binary first before deploying it (e.g., `xz -d tsm-pass-linux-amd64.xz`).
+
 ### Using release binaries
 
 1. Download the [latest release][repo-url] binaries
+1. Decompress binaries
+   - e.g., `xz -d tsm-pass-linux-amd64.xz`
 1. Deploy
    - Place `tsm-pass` in a location of your choice
      - e.g., `/usr/local/bin/tsm-pass`
+
+**NOTE**:
+
+DEB and RPM packages are provided as an alternative to manually deploying
+binaries.
 
 ## Configuration
 
