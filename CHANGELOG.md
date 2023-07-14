@@ -26,6 +26,31 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.2.1] - 2023-07-14
+
+### Overview
+
+- Bug fixes
+- Dependency updates
+- built using Go 1.19.11
+  - Statically linked
+  - Windows (x86, x64)
+  - Linux (x86, x64)
+
+### Changed
+
+- Dependencies
+  - `Go`
+    - `1.19.8` to `1.19.11`
+  - `atc0005/go-ci`
+    - `go-ci-oldstable-build-v0.10.4` to `go-ci-oldstable-build-v0.11.4`
+- (GH-136) Update vuln analysis GHAW to remove on.push hook
+
+### Fixed
+
+- (GH-132) Disable depguard linter
+- (GH-136) Restore local CodeQL workflow
+
 ## [v0.2.0] - 2023-04-10
 
 ### Overview
@@ -360,7 +385,8 @@ for reference or alternative use.
     - x86
     - x64
 
-[Unreleased]: https://github.com/atc0005/tsm-pass/compare/v0.2.0...HEAD
+[Unreleased]: https://github.com/atc0005/tsm-pass/compare/v0.2.1...HEAD
+[v0.2.1]: https://github.com/atc0005/tsm-pass/releases/tag/v0.2.1
 [v0.2.0]: https://github.com/atc0005/tsm-pass/releases/tag/v0.2.0
 [v0.1.13]: https://github.com/atc0005/tsm-pass/releases/tag/v0.1.13
 [v0.1.12]: https://github.com/atc0005/tsm-pass/releases/tag/v0.1.12
