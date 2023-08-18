@@ -26,6 +26,23 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.2.2] - 2023-08-18
+
+### Added
+
+- (GH-143) Add initial automated release notes config
+- (GH-145) Add initial automated release build workflow
+
+### Changed
+
+- Dependencies
+  - `Go`
+    - `1.19.11` to `1.20.7`
+  - `atc0005/go-ci`
+    - `go-ci-oldstable-build-v0.11.4` to `go-ci-oldstable-build-v0.13.4`
+- (GH-147) Update Dependabot config to monitor both branches
+- (GH-163) Update project to Go 1.20 series
+
 ## [v0.2.1] - 2023-07-14
 
 ### Overview
@@ -385,7 +402,8 @@ for reference or alternative use.
     - x86
     - x64
 
-[Unreleased]: https://github.com/atc0005/tsm-pass/compare/v0.2.1...HEAD
+[Unreleased]: https://github.com/atc0005/tsm-pass/compare/v0.2.2...HEAD
+[v0.2.2]: https://github.com/atc0005/tsm-pass/releases/tag/v0.2.2
 [v0.2.1]: https://github.com/atc0005/tsm-pass/releases/tag/v0.2.1
 [v0.2.0]: https://github.com/atc0005/tsm-pass/releases/tag/v0.2.0
 [v0.1.13]: https://github.com/atc0005/tsm-pass/releases/tag/v0.1.13
