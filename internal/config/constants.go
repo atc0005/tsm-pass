@@ -13,6 +13,10 @@ const (
 	myAppURL  string = "https://github.com/atc0005/tsm-pass"
 )
 
+// shorthandFlagSuffix is appended to short flag help text to emphasize that
+// the flag is a shorthand version of a longer flag.
+const shorthandFlagSuffix = " (shorthand)"
+
 // Help text used with flags
 const (
 	versionFlagHelp         string = "Whether to display application version and then immediately exit application."
