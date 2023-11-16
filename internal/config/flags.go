@@ -11,16 +11,16 @@ import "flag"
 
 func (c *Config) handleFlagsConfig() {
 
-	flag.BoolVar(&c.showVersion, "v", defaultDisplayVersionAndExit, versionFlagHelp+" (shorthand)")
+	flag.BoolVar(&c.showVersion, "v", defaultDisplayVersionAndExit, versionFlagHelp+shorthandFlagSuffix)
 	flag.BoolVar(&c.showVersion, "version", defaultDisplayVersionAndExit, versionFlagHelp)
 
-	flag.IntVar(&c.minDigits, "md", defaultMinDigits, minDigitsFlagHelp+" (shorthand)")
+	flag.IntVar(&c.minDigits, "md", defaultMinDigits, minDigitsFlagHelp+shorthandFlagSuffix)
 	flag.IntVar(&c.minDigits, "min-digits", defaultMinDigits, minDigitsFlagHelp)
 
-	flag.IntVar(&c.minSpecialChars, "ms", defaultMinSpecialChars, minSpecialCharsFlagHelp+" (shorthand)")
+	flag.IntVar(&c.minSpecialChars, "ms", defaultMinSpecialChars, minSpecialCharsFlagHelp+shorthandFlagSuffix)
 	flag.IntVar(&c.minSpecialChars, "min-specials", defaultMinSpecialChars, minSpecialCharsFlagHelp)
 
-	flag.IntVar(&c.totalChars, "l", defaultTotalChars, totalCharsFlagHelp+" (shorthand)")
+	flag.IntVar(&c.totalChars, "l", defaultTotalChars, totalCharsFlagHelp+shorthandFlagSuffix)
 	flag.IntVar(&c.totalChars, "length", defaultTotalChars, totalCharsFlagHelp)
 
 	// Allow our function to override the default Help output
