@@ -26,6 +26,28 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.2.3] - 2023-11-16
+
+### Changed
+
+### Dependency Updates
+
+- (GH-200) canary: bump golang from 1.20.10 to 1.20.11 in /dependabot/docker/go
+- (GH-176) canary: bump golang from 1.20.7 to 1.20.8 in /dependabot/docker/go
+- (GH-195) canary: bump golang from 1.20.8 to 1.20.10 in /dependabot/docker/go
+- (GH-202) docker: bump atc0005/go-ci from go-ci-oldstable-build-v0.13.12 to go-ci-oldstable-build-v0.14.1 in /dependabot/docker/builds
+- (GH-169) docker: bump atc0005/go-ci from go-ci-oldstable-build-v0.13.4 to go-ci-oldstable-build-v0.13.5 in /dependabot/docker/builds
+- (GH-171) docker: bump atc0005/go-ci from go-ci-oldstable-build-v0.13.5 to go-ci-oldstable-build-v0.13.6 in /dependabot/docker/builds
+- (GH-172) docker: bump atc0005/go-ci from go-ci-oldstable-build-v0.13.6 to go-ci-oldstable-build-v0.13.7 in /dependabot/docker/builds
+- (GH-178) docker: bump atc0005/go-ci from go-ci-oldstable-build-v0.13.7 to go-ci-oldstable-build-v0.13.8 in /dependabot/docker/builds
+- (GH-184) docker: bump atc0005/go-ci from go-ci-oldstable-build-v0.13.8 to go-ci-oldstable-build-v0.13.9 in /dependabot/docker/builds
+- (GH-197) docker: bump atc0005/go-ci from go-ci-oldstable-build-v0.13.9 to go-ci-oldstable-build-v0.13.12 in /dependabot/docker/builds
+- (GH-174) ghaw: bump actions/checkout from 3 to 4
+
+### Fixed
+
+- (GH-205) Fix goconst linting errors
+
 ## [v0.2.2] - 2023-08-18
 
 ### Added
@@ -402,7 +424,8 @@ for reference or alternative use.
     - x86
     - x64
 
-[Unreleased]: https://github.com/atc0005/tsm-pass/compare/v0.2.2...HEAD
+[Unreleased]: https://github.com/atc0005/tsm-pass/compare/v0.2.3...HEAD
+[v0.2.3]: https://github.com/atc0005/tsm-pass/releases/tag/v0.2.3
 [v0.2.2]: https://github.com/atc0005/tsm-pass/releases/tag/v0.2.2
 [v0.2.1]: https://github.com/atc0005/tsm-pass/releases/tag/v0.2.1
 [v0.2.0]: https://github.com/atc0005/tsm-pass/releases/tag/v0.2.0
