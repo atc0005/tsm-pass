@@ -99,7 +99,7 @@ Passwords can be be composed of these valid characters:
 | `=`        | Equals                                                 |
 | `(`        | Open parenthesis (or open bracket)                     |
 | `)`        | Close parenthesis (or close bracket)                   |
-| `|`        | Vertical bar                                           |
+| `\|`       | Vertical bar                                           |
 | `{`        | Opening brace                                          |
 | `}`        | Closing brace                                          |
 | `[`        | Opening bracket                                        |

@@ -7,4 +7,4 @@
 
 module github.com/atc0005/tsm-pass
 
-go 1.19
+go 1.20
