@@ -26,6 +26,23 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.2.5] - 2024-02-19
+
+### Changed
+
+### Dependency Updates
+
+- (GH-233) canary: bump golang from 1.20.13 to 1.20.14 in /dependabot/docker/go
+- (GH-221) docker: bump atc0005/go-ci from go-ci-oldstable-build-v0.14.3 to go-ci-oldstable-build-v0.14.4 in /dependabot/docker/builds
+- (GH-225) docker: bump atc0005/go-ci from go-ci-oldstable-build-v0.14.4 to go-ci-oldstable-build-v0.14.5 in /dependabot/docker/builds
+- (GH-226) docker: bump atc0005/go-ci from go-ci-oldstable-build-v0.14.5 to go-ci-oldstable-build-v0.14.6 in /dependabot/docker/builds
+- (GH-237) docker: bump atc0005/go-ci from go-ci-oldstable-build-v0.14.6 to go-ci-oldstable-build-v0.14.9 in /dependabot/docker/builds
+- (GH-239) docker: bump atc0005/go-ci from go-ci-oldstable-build-v0.14.9 to go-ci-oldstable-build-v0.15.0 in /dependabot/docker/builds
+
+### Fixed
+
+- (GH-228) Fix `MD056/table-column-count` linting warning
+
 ## [v0.2.4] - 2024-01-19
 
 ### Changed
@@ -436,7 +453,8 @@ for reference or alternative use.
     - x86
     - x64
 
-[Unreleased]: https://github.com/atc0005/tsm-pass/compare/v0.2.4...HEAD
+[Unreleased]: https://github.com/atc0005/tsm-pass/compare/v0.2.5...HEAD
+[v0.2.5]: https://github.com/atc0005/tsm-pass/releases/tag/v0.2.5
 [v0.2.4]: https://github.com/atc0005/tsm-pass/releases/tag/v0.2.4
 [v0.2.3]: https://github.com/atc0005/tsm-pass/releases/tag/v0.2.3
 [v0.2.2]: https://github.com/atc0005/tsm-pass/releases/tag/v0.2.2
