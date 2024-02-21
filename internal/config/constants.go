@@ -36,8 +36,8 @@ const (
 // Shared, password related constants for easy access.
 // #nosec G101 (https://github.com/securego/gosec)
 const (
-	PasswordSpecialCharacters string = ".!@#$%^&*_-+=`()|{}[]:;<>,?/~"
-	PasswordDigits            string = "0123456789"
-	PasswordLowerLetters      string = "abcdefghijklmnopqrstuvwxyz"
-	PasswordUpperLetters      string = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+	PasswordSpecialCharacters string = ".!@#$%^&*_-+=`()|{}[]:;<>,?/~" // nolint:gosec
+	PasswordDigits            string = "0123456789"                    // nolint:gosec
+	PasswordLowerLetters      string = "abcdefghijklmnopqrstuvwxyz"    // nolint:gosec
+	PasswordUpperLetters      string = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"    // nolint:gosec
 )
