@@ -57,7 +57,7 @@ func generatePassword(length int, reqNums int, reqSpecialChars int) (string, err
 	}
 
 	for i := 0; i < reqNums; i++ {
-		// fmt.Fprintln(os.Stderr, i)
+		// _, _ = fmt.Fprintln(os.Stderr, i)
 		val, err := getByte(digits)
 		if err != nil {
 			return "", err
@@ -67,7 +67,7 @@ func generatePassword(length int, reqNums int, reqSpecialChars int) (string, err
 	}
 
 	for i := 0; i < reqSpecialChars; i++ {
-		// fmt.Fprintln(os.Stderr, i)
+		// _, _ = fmt.Fprintln(os.Stderr, i)
 		val, err := getByte(tsmSpecialChars)
 		if err != nil {
 			return "", err
@@ -78,7 +78,7 @@ func generatePassword(length int, reqNums int, reqSpecialChars int) (string, err
 
 	remainingChars := length - reqNums - reqSpecialChars
 	for i := 0; i < remainingChars; i++ {
-		// fmt.Fprintln(os.Stderr, i)
+		// _, _ = fmt.Fprintln(os.Stderr, i)
 		val, err := getByte(allValidChars)
 		if err != nil {
 			return "", err
