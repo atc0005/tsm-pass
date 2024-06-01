@@ -47,8 +47,8 @@ type Config struct {
 // Usage is a custom override for the default Help text provided by the flag
 // package. Here we prepend some additional metadata to the existing output.
 var Usage = func() {
-	fmt.Fprintln(flag.CommandLine.Output(), "\n"+Version()+"\n")
-	fmt.Fprintf(flag.CommandLine.Output(), "Usage of %s:\n", os.Args[0])
+	_, _ = fmt.Fprintln(flag.CommandLine.Output(), "\n"+Version()+"\n")
+	_, _ = fmt.Fprintf(flag.CommandLine.Output(), "Usage of %s:\n", os.Args[0])
 	flag.PrintDefaults()
 }
 
