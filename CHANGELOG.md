@@ -26,6 +26,22 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.2.9] - 2024-06-07
+
+### Changed
+
+### Dependency Updates
+
+- (GH-289) Build Image: Bump atc0005/go-ci from go-ci-oldstable-build-v0.20.4 to go-ci-oldstable-build-v0.20.5 in /dependabot/docker/builds
+- (GH-291) Build Image: Bump atc0005/go-ci from go-ci-oldstable-build-v0.20.5 to go-ci-oldstable-build-v0.20.6 in /dependabot/docker/builds
+- (GH-298) Build Image: Bump atc0005/go-ci from go-ci-oldstable-build-v0.20.6 to go-ci-oldstable-build-v0.20.7 in /dependabot/docker/builds
+- (GH-295) Go Runtime: Bump golang from 1.21.10 to 1.21.11 in /dependabot/docker/go
+
+### Fixed
+
+- (GH-292) Remove inactive maligned linter
+- (GH-293) Fix errcheck linting errors
+
 ## [v0.2.8] - 2024-05-13
 
 ### Changed
@@ -497,7 +513,8 @@ for reference or alternative use.
     - x86
     - x64
 
-[Unreleased]: https://github.com/atc0005/tsm-pass/compare/v0.2.8...HEAD
+[Unreleased]: https://github.com/atc0005/tsm-pass/compare/v0.2.9...HEAD
+[v0.2.9]: https://github.com/atc0005/tsm-pass/releases/tag/v0.2.9
 [v0.2.8]: https://github.com/atc0005/tsm-pass/releases/tag/v0.2.8
 [v0.2.7]: https://github.com/atc0005/tsm-pass/releases/tag/v0.2.7
 [v0.2.6]: https://github.com/atc0005/tsm-pass/releases/tag/v0.2.6
