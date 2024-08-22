@@ -26,11 +26,29 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.2.11] - 2024-08-22
+
+### Changed
+
+#### Dependency Updates
+
+- (GH-318) Build Image: Bump atc0005/go-ci from go-ci-oldstable-build-v0.21.4 to go-ci-oldstable-build-v0.21.5 in /dependabot/docker/builds
+- (GH-322) Build Image: Bump atc0005/go-ci from go-ci-oldstable-build-v0.21.5 to go-ci-oldstable-build-v0.21.6 in /dependabot/docker/builds
+- (GH-324) Build Image: Bump atc0005/go-ci from go-ci-oldstable-build-v0.21.6 to go-ci-oldstable-build-v0.21.7 in /dependabot/docker/builds
+- (GH-329) Build Image: Bump atc0005/go-ci from go-ci-oldstable-build-v0.21.7 to go-ci-oldstable-build-v0.21.8 in /dependabot/docker/builds
+- (GH-333) Build Image: Bump atc0005/go-ci from go-ci-oldstable-build-v0.21.8 to go-ci-oldstable-build-v0.21.9 in /dependabot/docker/builds
+- (GH-336) Go Runtime: Bump golang from 1.21.12 to 1.22.6 in /dependabot/docker/go
+- (GH-335) Update project to Go 1.22 series
+
+#### Other
+
+- (GH-325) Push `REPO_VERSION` var into containers for builds
+
 ## [v0.2.10] - 2024-07-10
 
 ### Changed
 
-### Dependency Updates
+#### Dependency Updates
 
 - (GH-303) Build Image: Bump atc0005/go-ci from go-ci-oldstable-build-v0.20.7 to go-ci-oldstable-build-v0.20.8 in /dependabot/docker/builds
 - (GH-306) Build Image: Bump atc0005/go-ci from go-ci-oldstable-build-v0.20.8 to go-ci-oldstable-build-v0.21.2 in /dependabot/docker/builds
@@ -42,7 +60,7 @@ The following types of changes will be recorded in this file:
 
 ### Changed
 
-### Dependency Updates
+#### Dependency Updates
 
 - (GH-289) Build Image: Bump atc0005/go-ci from go-ci-oldstable-build-v0.20.4 to go-ci-oldstable-build-v0.20.5 in /dependabot/docker/builds
 - (GH-291) Build Image: Bump atc0005/go-ci from go-ci-oldstable-build-v0.20.5 to go-ci-oldstable-build-v0.20.6 in /dependabot/docker/builds
@@ -58,7 +76,7 @@ The following types of changes will be recorded in this file:
 
 ### Changed
 
-### Dependency Updates
+#### Dependency Updates
 
 - (GH-277) Build Image: Bump atc0005/go-ci from go-ci-oldstable-build-v0.20.1 to go-ci-oldstable-build-v0.20.2 in /dependabot/docker/builds
 - (GH-281) Build Image: Bump atc0005/go-ci from go-ci-oldstable-build-v0.20.2 to go-ci-oldstable-build-v0.20.3 in /dependabot/docker/builds
@@ -69,7 +87,7 @@ The following types of changes will be recorded in this file:
 
 ### Changed
 
-### Dependency Updates
+#### Dependency Updates
 
 - (GH-263) Build Image: Bump atc0005/go-ci from go-ci-oldstable-build-v0.15.4 to go-ci-oldstable-build-v0.16.0 in /dependabot/docker/builds
 - (GH-264) Build Image: Bump atc0005/go-ci from go-ci-oldstable-build-v0.16.0 to go-ci-oldstable-build-v0.16.1 in /dependabot/docker/builds
@@ -82,7 +100,7 @@ The following types of changes will be recorded in this file:
 
 ### Changed
 
-### Dependency Updates
+#### Dependency Updates
 
 - (GH-258) Add todo/release label to "Go Runtime" PRs
 - (GH-252) Build Image: Bump atc0005/go-ci from go-ci-oldstable-build-v0.15.2 to go-ci-oldstable-build-v0.15.3 in /dependabot/docker/builds
@@ -102,7 +120,7 @@ The following types of changes will be recorded in this file:
 
 ### Changed
 
-### Dependency Updates
+#### Dependency Updates
 
 - (GH-233) canary: bump golang from 1.20.13 to 1.20.14 in /dependabot/docker/go
 - (GH-221) docker: bump atc0005/go-ci from go-ci-oldstable-build-v0.14.3 to go-ci-oldstable-build-v0.14.4 in /dependabot/docker/builds
@@ -119,7 +137,7 @@ The following types of changes will be recorded in this file:
 
 ### Changed
 
-### Dependency Updates
+#### Dependency Updates
 
 - (GH-210) canary: bump golang from 1.20.11 to 1.20.12 in /dependabot/docker/go
 - (GH-215) canary: bump golang from 1.20.12 to 1.20.13 in /dependabot/docker/go
@@ -131,7 +149,7 @@ The following types of changes will be recorded in this file:
 
 ### Changed
 
-### Dependency Updates
+#### Dependency Updates
 
 - (GH-200) canary: bump golang from 1.20.10 to 1.20.11 in /dependabot/docker/go
 - (GH-176) canary: bump golang from 1.20.7 to 1.20.8 in /dependabot/docker/go
@@ -525,7 +543,8 @@ for reference or alternative use.
     - x86
     - x64
 
-[Unreleased]: https://github.com/atc0005/tsm-pass/compare/v0.2.10...HEAD
+[Unreleased]: https://github.com/atc0005/tsm-pass/compare/v0.2.11...HEAD
+[v0.2.11]: https://github.com/atc0005/tsm-pass/releases/tag/v0.2.11
 [v0.2.10]: https://github.com/atc0005/tsm-pass/releases/tag/v0.2.10
 [v0.2.9]: https://github.com/atc0005/tsm-pass/releases/tag/v0.2.9
 [v0.2.8]: https://github.com/atc0005/tsm-pass/releases/tag/v0.2.8
