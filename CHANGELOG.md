@@ -26,6 +26,16 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.2.13] - 2024-11-14
+
+### Changed
+
+#### Dependency Updates
+
+- (GH-358) Build Image: Bump atc0005/go-ci from go-ci-oldstable-build-v0.21.13 to go-ci-oldstable-build-v0.21.15 in /dependabot/docker/builds
+- (GH-360) Build Image: Bump atc0005/go-ci from go-ci-oldstable-build-v0.21.15 to go-ci-oldstable-build-v0.21.16 in /dependabot/docker/builds
+- (GH-355) Go Runtime: Bump golang from 1.22.7 to 1.22.9 in /dependabot/docker/go
+
 ## [v0.2.12] - 2024-09-23
 
 ### Changed
@@ -553,7 +563,8 @@ for reference or alternative use.
     - x86
     - x64
 
-[Unreleased]: https://github.com/atc0005/tsm-pass/compare/v0.2.12...HEAD
+[Unreleased]: https://github.com/atc0005/tsm-pass/compare/v0.2.13...HEAD
+[v0.2.13]: https://github.com/atc0005/tsm-pass/releases/tag/v0.2.13
 [v0.2.12]: https://github.com/atc0005/tsm-pass/releases/tag/v0.2.12
 [v0.2.11]: https://github.com/atc0005/tsm-pass/releases/tag/v0.2.11
 [v0.2.10]: https://github.com/atc0005/tsm-pass/releases/tag/v0.2.10
