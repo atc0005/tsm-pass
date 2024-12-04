@@ -14,4 +14,4 @@
 # binaries) to reflect that version of Go.
 
 # https://hub.docker.com/_/golang
-FROM golang:1.23.3
+FROM golang:1.23.4
